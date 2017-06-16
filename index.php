@@ -284,6 +284,5 @@ $APPLICATION->SetTitle('Главная');
 			"NAME" => "География расположения объектов", // текст всплывающей подсказки на иконке
 			));
 		?>		
-
-1
+        
 <?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');?>
