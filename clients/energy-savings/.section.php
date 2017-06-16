@@ -1,0 +1,4 @@
+<?
+$sSectionName = "Энергосбережение";
+$arDirProperties = Array();
+?>

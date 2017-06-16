@@ -1,0 +1,32 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Новости", 
+		"/pressroom/news/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Галерея", 
+		"/pressroom/gallery/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"СМИ о компании", 
+		"/pressroom/mass-media/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Интернет-приемная", 
+		"/pressroom/internet-reception/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>
