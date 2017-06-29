@@ -8,14 +8,14 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Сбытовая деятельность АО \"Компания ЮГ\"", 
+		"Сбытовая деятельность АО \"Юграэнерго\"", 
 		"marketing-activity/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Сетевая деятельность АО \"Компания ЮГ\"", 
+		"Сетевая деятельность АО \"Юграэнерго\"", 
 		"network-activity/", 
 		Array(), 
 		Array(), 
@@ -43,7 +43,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Информация о финансово-хозяйственной деятельности АО \"Компания ЮГ\" размещенная на официальном сайте РСТ Югры", 
+		"Информация о финансово-хозяйственной деятельности АО \"Юграэнерго\" размещенная на официальном сайте РСТ Югры", 
 		"/information/informatsiya-o-finansovo-khozyaystvennoy-deyatelnosti-ao-kompaniya-yug-razmeshchennaya-na-rst", 
 		Array(), 
 		Array(), 

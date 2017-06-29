@@ -5,7 +5,7 @@ $APPLICATION->SetTitle('Главная');
     <div class="container dd-shabow">
         <div class="hide-menu-desk hidden-lg-up">
             <div class="row">
-                <div class="white-text topheader">Югорская генерирующая компания</div>
+                <div class="white-text topheader">АО "Юграэнерго"</div>
                 <img alt="" src="/bitrix/templates/ugcompany/img/slider.jpg" style="width: 100%;">
             </div>
         </div>
@@ -26,7 +26,7 @@ $APPLICATION->SetTitle('Главная');
             </div>
             <div class="col-md-3 pull-md-9 hide-menu">
                 <div class="menu">
-                    <div class="orange-text">Югорская генерирующая компания</div>
+                    <div class="orange-text">АО "Юграэнерго"</div>
                     <?$APPLICATION->IncludeComponent("bitrix:menu", "main-left-menu", Array(
 						 "ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
 							  "CHILD_MENU_TYPE" => "index",	// Тип меню для остальных уровней
