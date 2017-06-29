@@ -5,7 +5,7 @@ $APPLICATION->SetTitle('Главная');
     <div class="container dd-shabow">
         <div class="hide-menu-desk hidden-lg-up">
             <div class="row">
-                <div class="white-text topheader">Югорская генерирующая компания</div>
+                <div class="white-text topheader">АО "Юграэнерго"</div>
                 <img alt="" src="/bitrix/templates/ugcompany/img/slider.jpg" style="width: 100%;">
             </div>
         </div>
