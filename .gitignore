@@ -4,6 +4,8 @@
 /.vagrant
 /Vagrantfile
 
+/information
+
 # Windows thumbnail cache files
 Thumbs.db
 ehthumbs.db
