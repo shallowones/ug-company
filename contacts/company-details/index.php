@@ -10,10 +10,12 @@ $APPLICATION->SetTitle("Реквизиты компании");
  <b>Полное наименование:</b>
 	</td>
 	<td>
-		 &nbsp;
+		 &nbsp; &nbsp; &nbsp;
 	</td>
 	<td style="background-color: #ffffff; color: #000000;">
-		 Акционерное общество «Югорская генерирующая компания»
+		<p>
+			 Акционерное общество «Югорская энергетическая компания децентрализованной зоны»
+		</p>
 	</td>
 </tr>
 <tr>
@@ -35,7 +37,7 @@ $APPLICATION->SetTitle("Реквизиты компании");
 		 &nbsp;
 	</td>
 	<td>
-		 АО «Компания ЮГ»<br>
+		 АО «Юграэнерго»<br>
 	</td>
 </tr>
 <tr>
@@ -370,19 +372,21 @@ $APPLICATION->SetTitle("Реквизиты компании");
 </tr>
 <tr>
 	<td colspan="1">
- <b>Заместитель главного бухгалтера:</b>
+ <b>Начальник финансового управления</b>
 	</td>
 	<td colspan="1">
 		 &nbsp;
 	</td>
 	<td colspan="1">
 		<p>
-			 Шапошникова Людмила Вячеславовна
+			 Копьева Ольга Валерьевна
 		</p>
-		 тел./факс 8(3467) 37-93-30, 37-93-31,&nbsp; доб.114
+		<p>
+			 тел./факс 8(3467) 37-93-30, 37-93-31,&nbsp; доб.114
+		</p>
 	</td>
 </tr>
 </tbody>
 </table>
  </span> <br>
- <a href="/upload/files/kartochka03_17.docx" class="download-link-doc">Скачать карточку предприятия</a>&nbsp; <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ <a href="/upload/files/kart210617.docx" class="download-link-doc">Скачать карточку предприятия</a>&nbsp; <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

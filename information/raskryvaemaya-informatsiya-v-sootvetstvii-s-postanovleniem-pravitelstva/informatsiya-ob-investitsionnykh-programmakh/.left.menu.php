@@ -13,6 +13,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+		"Отчет об использовании инвестиционных ресурсов включенных в регулируемые государством центы (тарифы) в сфере электроэнергетики/теплоснабжения.", 
+		"/information/raskryvaemaya-informatsiya-v-sootvetstvii-s-postanovleniem-pravitelstva/informatsiya-ob-investitsionnykh-programmakh/otchet-ob-ispolzovanii-investitsionnykh-resursov-vklyuchennykh-v-reguliruemye-gosudarstvom-tsenty-ta/", 
+		Array(), 
+		Array(), 
+		"" 
 	)
 );
 ?>

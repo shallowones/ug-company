@@ -11,4 +11,5 @@ $APPLICATION->SetTitle("Об объеме недопоставленной в р
  <a href="/upload/files/network/Объем%20недоотпуска%20электроэнергии%20в%20связи%20с%20техн%20нарушениях%20за%20февраль%202017.xlsx">Февраль</a><br>
  <a href="/upload/files/network/Объем%20недоотпуска%20электроэнергии%20в%20связи%20с%20%20%20техн%20нарушениях%20за%20март%202017.xlsx">Март</a><br>
  <a href="/upload/files/info/err04_17.xlsx">Апрель</a><br>
-<a href="/upload/files/network/error%2005_17.xlsx">Май</a><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ <a href="/upload/files/network/error%2005_17.xlsx">Май</a><br>
+<a href="/upload/files/network/Рапорт%20о%20техн%20нарушениях%20за%20июль%202017.xlsx">Июль</a><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

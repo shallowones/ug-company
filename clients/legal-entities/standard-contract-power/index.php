@@ -8,7 +8,7 @@ $APPLICATION->SetTitle("Типовой договор энергоснабжен
  Приложение к контракту № 6<br>
  Приложение к контракту № 7<br>
  Приложение к контракту № 8<br>
-<a href="/upload/files/sbyt/municip_kontrakt.zip">Скачать</a><br>
+ <a href="/upload/files/info/municip_kontrakt.zip">Скачать</a><br>
  <br>
  Договор энергоснабжения<br>
  Приложение к контракту № 1-4<br>
@@ -16,7 +16,7 @@ $APPLICATION->SetTitle("Типовой договор энергоснабжен
  Приложение к контракту № 6<br>
  Приложение к контракту № 7<br>
  Приложение к контракту № 8<br>
-<a href="/upload/files/sbyt/yur_faces.zip">Скачать</a><br>
+ <a href="/upload/files/info/yur_faces.zip">Скачать</a><br>
  <br>
  Договор энергоснабжения с Исполнителем коммунальных услуг<br>
  Приложение к договору № 1<br>
@@ -25,6 +25,6 @@ $APPLICATION->SetTitle("Типовой договор энергоснабжен
  Приложение к договору № 4<br>
  Приложение к договору № 5<br>
  Приложение к договору № 6<br>
-<a href="/upload/files/sbyt/kom_uslugi.zip">Скачать</a><br>
+ <a href="/upload/files/info/kom_uslugi.zip">Скачать</a><br>
  <br>
  <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

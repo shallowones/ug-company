@@ -34,6 +34,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+		"Личный кабинет физ. лица", 
+		"http://lk.ugra-energo.ru/", 
+		Array(), 
+		Array(), 
+		"" 
 	)
 );
 ?>

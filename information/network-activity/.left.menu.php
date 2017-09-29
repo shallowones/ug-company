@@ -71,7 +71,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Населённые пункты Ханты-Мансийского автономного округа – Югры (зона деятельности  АО «Компания ЮГ»)", 
+		"Населённые пункты Ханты-Мансийского автономного округа – Югры (зона деятельности  АО «Юграэнерго»)", 
 		"/information/network-activity/naselyennye-punkty-khanty-mansiyskogo-avtonomnogo-okruga-yugry-zona-deyatelnosti-ao-kompaniya-yug-/", 
 		Array(), 
 		Array(), 

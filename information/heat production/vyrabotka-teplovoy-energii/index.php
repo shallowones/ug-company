@@ -27,4 +27,6 @@ $APPLICATION->SetTitle("Выработка тепловой энергии");
  <a href="/upload/files/info/tep3_16.docx">III кв.2016г.</a><br>
  <a href="/upload/files/info/tel4_16.docx">IV кв.2016г.</a><br>
  <br>
-</ul><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ <br>
+</ul>
+ <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

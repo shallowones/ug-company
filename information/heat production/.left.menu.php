@@ -69,6 +69,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+		"Информация о выводе источников тепловой энергии, тепловых сетей из эксплуатации,об основаниях приостановления, ограничения, прекращения режима потребления тепловой энергии АО \"Юграэнерго\"", 
+		"informatsiya-o-vyvode-istochnikov-teplovoy-energii-teplovykh-setey-iz-ekspluatatsii-ob-osnovaniyakh-/", 
+		Array(), 
+		Array(), 
+		"" 
 	)
 );
 ?>

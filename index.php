@@ -1,6 +1,7 @@
 <?
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
-$APPLICATION->SetTitle('Главная');
+$APPLICATION->SetPageProperty("TITLE", "Акционерное общество \"Югорская энергетическая компания децентрализованной зоны\"");
+$APPLICATION->SetTitle("Главная");
 ?>
     <div class="container dd-shabow">
         <div class="hide-menu-desk hidden-lg-up">
