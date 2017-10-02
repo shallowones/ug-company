@@ -30,7 +30,7 @@ class Text extends Input
         }
         $attributes = trim($attributes);
 
-        return "<input id=\"{$this->id}\" {$attributes}/>";
+        return "<input class='profile__text' id=\"{$this->id}\" {$attributes}/>";
     }
 
     public function validate()

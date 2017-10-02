@@ -9,7 +9,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Профиль", 
-		"#", 
+		"profile/", 
 		Array(), 
 		Array(), 
 		"" 

@@ -1,13 +1,14 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arResult */
 ?>
-    <h1 class="h1">Редактирование профиля</h1>
+    <h1 class="h1">Профиль</h1>
 
     <? ShowError($arResult['strProfileError']); ?>
     <?
     if ($arResult['DATA_SAVED'] == 'Y')
         ShowNote(GetMessage('PROFILE_DATA_SAVED'));
     ?>
+
 
     <form class="profile__form" method="post" name="profile-edit" action="<? echo $arResult['FORM_TARGET'] ?>" enctype="multipart/form-data">
         <? echo $arResult['BX_SESSION_CHECK'] ?>
@@ -29,3 +30,7 @@
             <button class="button go" type="submit" name="save" value="Y"><? echo GetMessage('MAIN_SAVE') ?></button>
         </div>
     </form>
+
+<script>
+
+</script>

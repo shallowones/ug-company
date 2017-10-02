@@ -16,5 +16,5 @@ foreach ($arResult['LIST'] as &$arHlElement) {
     // Дата элемента
     /** @var Bitrix\Main\Type\DateTime $date */
     $date = $arHlElement['UF_DATE_INSERT'];
-    $arHlElement['DATE_INSERT'] = $date->format('d.m.Y H:i');
+//    $arHlElement['DATE_INSERT'] = $date->format('d.m.Y H:i');
 }

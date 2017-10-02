@@ -615,7 +615,6 @@ class StatementComponent extends CBitrixComponent
             ShowError('У вас нет прав.');
             return;
         }
-
         $this->includeComponentTemplate($componentPage);
     }
 }

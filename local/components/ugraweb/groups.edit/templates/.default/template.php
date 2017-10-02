@@ -17,7 +17,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
                     <input type="radio"
                            name="group-select[]"
                            id="group-select__<? echo $arGroup['ID'] ?>"
-                            <?if($arGroup['ID'] == "6"):?>
+                            <?if($arGroup['ID'] == "7"):?>
                                     checked
                             <?endif;?>
                            value="<? echo $arGroup['ID'] ?>">

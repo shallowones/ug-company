@@ -3,7 +3,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
     die();
 }
 global $APPLICATION;
-
+global $USER;
+global $state;
+//if(!($USER->IsAuthorized()))  LocalRedirect('/lk/');
+$state = ($APPLICATION->GetCurDir() === ('/lk/statements/'));
+$pop = $APPLICATION->GetCurDir() === ('/lk/profile/');
 $arPage = array(
     'css' => [
         SITE_TEMPLATE_PATH.'/fonts/bundle.css',
@@ -35,11 +39,24 @@ foreach ($arPage['js'] as $js) {
     <? $APPLICATION->ShowHead() ?>
 </head>
 <body>
-<div class="page">
+<div class="page <?if($state && $USER->IsAuthorized()):?>state<?endif;?>">
     <div id="bx-panel"><? $APPLICATION->ShowPanel() ?></div>
     <header class="header">
         <div class="header-flex wrapper">
-            <div class="header-title">АО «ЮграЭнерго»</div>
+            <div class="header-title">
+            <?$APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                ".default",
+                Array(
+                    "AREA_FILE_SHOW" => "file",
+                    "AREA_FILE_SUFFIX" => "inc",
+                    "COMPOSITE_FRAME_MODE" => "A",
+                    "COMPOSITE_FRAME_TYPE" => "AUTO",
+                    "EDIT_TEMPLATE" => "",
+                    "PATH" => SITE_TEMPLATE_PATH . "/inc/title.php"
+                )
+            );?>
+            </div>
 
             <div class="header-acc">
                 <?if ($USER->IsAuthorized()):
@@ -47,10 +64,11 @@ foreach ($arPage['js'] as $js) {
                 <a class="header-acc__link" href="?logout=yes">Выйти из аккаунта</a>
                 <?endif;?>
             </div>
-
         </div>
     </header>
     <main class="main">
-        <div class="wrapper">
-            <div class="content">
-                <div class="content-left">
+    <?if(!$state && $USER->IsAuthorized()):?>
+     <div class="wrapper">
+        <div class="content">
+            <div class="content-left">
+    <?endif;?>

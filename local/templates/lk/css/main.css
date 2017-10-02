@@ -883,6 +883,8 @@ body {
           justify-content: space-between;
   margin-top: 30px;
 }
+
+
 .button {
   border: 2px solid #dae2e6;
   background: transparent;
@@ -904,6 +906,15 @@ body {
   border-color: #ff9900;
   color: #fff;
 }
+
+.button.lk {
+  background-color: #ff9900;
+  border-color: #ff9900;
+  color: #fff;
+  text-align: center;
+  width: 300px;
+}
+
 .button.go:hover {
   background-color: #ffad33;
   border-color: #ffad33;
