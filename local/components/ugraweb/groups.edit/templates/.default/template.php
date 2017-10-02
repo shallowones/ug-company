@@ -7,10 +7,8 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
     die();
 ?>
-<div class="content-left">
-
     <? if (!$arResult['SELECTED_GROUP']): ?>
-        <h2>Пожалуйста, выберите необходимую группу:</h2>
+        <h2 class="h2">Пожалуйста, выберите необходимую группу:</h2>
 
         <form action="<? echo POST_FORM_ACTION_URI ?>" method="post">
             <div class="radio-group">
@@ -32,4 +30,3 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
             <button class="button go" type="submit" name="select-submit" value="Y">Выбрать</button>
         </form>
     <? endif; ?>
-</div>

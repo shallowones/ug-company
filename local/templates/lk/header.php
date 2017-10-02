@@ -53,3 +53,4 @@ foreach ($arPage['js'] as $js) {
     <main class="main">
         <div class="wrapper">
             <div class="content">
+                <div class="content-left">

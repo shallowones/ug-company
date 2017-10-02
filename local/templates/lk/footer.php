@@ -1,3 +1,4 @@
+</div>
     <?if ($USER->IsAuthorized()):?>
         <div class="content-right">
             <?$APPLICATION->IncludeComponent(
