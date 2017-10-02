@@ -1,0 +1,64 @@
+{
+  "acl-settings": {
+    "configuration-cache-time": 60,
+    "configuration-cache-folder": "acl-config"
+  },
+  "acl": {
+    "defaultAction": "deny",
+    "combineStrategy": "And",
+    "availableRoles": [
+      "administrators",
+      "ownGroup",
+      "MODERATORS",
+      "INDIVIDUALS",
+      ["ENTREPRENEUR", "INDIVIDUALS"],
+      ["ORGANIZATION", "INDIVIDUALS"]
+    ],
+    "availableResources": {
+      "statement": [
+        "add",
+        "edit",
+        "delete"
+      ],
+      "statementStatus": [
+        "edit"
+      ]
+    },
+    "rights": {
+      "INDIVIDUALS": [
+        {
+          "access": "allow",
+          "resource": {
+            "name": "statement",
+            "actions": [
+              "add",
+              "edit",
+              "delete"
+            ]
+          }
+        }
+      ],
+      "MODERATORS": [
+        {
+          "access": "allow",
+          "resource": {
+            "name": "statement",
+            "actions": [
+              "edit",
+              "delete"
+            ]
+          }
+        },
+        {
+          "access": "allow",
+          "resource": {
+            "name": "statementStatus",
+            "actions": [
+              "edit"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

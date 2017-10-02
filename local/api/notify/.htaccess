@@ -1,0 +1,16 @@
+#Header add Access-Control-Allow-Origin "*"
+#Header add Access-Control-Allow-Headers "Origin, Content-Type, Accept"
+#Header add Access-Control-Allow-Methods "GET, POST, OPTIONS, DELETE"
+
+<Files swagger.yaml>
+ order allow,deny
+ deny from all
+ </Files>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !legend.txt
+    #правило для кореектной работы Slim.
+    RewriteRule . index.php [L]
+</IfModule>

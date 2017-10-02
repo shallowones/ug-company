@@ -1,0 +1,385 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: Панель управления модулем "Уведомления"
+  description: Описание API для работы с настройками модуля
+host: exp86.loc
+schemes:
+  - http
+produces:
+  - application/json
+basePath: /local/api/notify
+responses:
+  Error:
+    description: Внутренная ошибка сервера
+    schema:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Сообщение об ошибке
+        code:
+          type: string
+          description: Код ошибки
+parameters:
+  entityCode:
+    name: entityCode
+    in: path
+    description: Код сущности
+    required: true
+    type: string
+  eventId:
+    name: eventId
+    in: path
+    description: Идентификатор события
+    required: true
+    type: integer
+  providerId:
+    name: providerId
+    in: path
+    description: Идентификатор провайдера
+    required: true
+    type: integer
+  ruleId:
+    name: ruleId
+    in: path
+    description: Идентификатор правила
+    required: true
+    type: integer
+paths:
+  /entities:
+    get:
+      summary: Список сущностей
+      description: Сущности, которые поддерживаются модулем
+      responses:
+        200:
+          description: Коллекция сущностей
+          schema:
+            $ref: '#/definitions/entityCollection'
+        500:
+          $ref: '#/responses/Error'
+  /entities/{entityCode}/events:
+    get:
+      summary: Коллекция событий
+      description: События доступные для выбранной сущности
+      parameters:
+        - $ref: '#/parameters/entityCode'
+      responses:
+        200:
+          description: Коллекция событий. События, содержащие поле идентификатора (id), уже были зарегистрированы.
+                        По ним можно полуичть дополнительную информацию.
+          schema:
+            $ref: '#/definitions/eventsCollection'
+        500:
+          $ref: '#/responses/Error'
+    post:
+      summary: Добавить обработку события
+      parameters:
+        - $ref: '#/parameters/entityCode'
+        - name: event
+          in: body
+          description: Событие
+          required: true
+          schema:
+            $ref: '#/definitions/eventRequest'
+      responses:
+        200:
+          description: Событие успешно добавлено
+          schema:
+            type: object
+            properties:
+              eventId:
+                type: integer
+                description: Идентификатор добавленного события
+        500:
+          $ref: '#/responses/Error'
+  /entities/{entityCode}/events/{eventId}:
+    delete:
+      summary: Удалить обработку события
+      parameters:
+        - $ref: '#/parameters/entityCode'
+        - $ref: '#/parameters/eventId'
+      responses:
+        200:
+          description: Удаление прошло успешно
+        500:
+          $ref: '#/responses/Error'
+  /entities/{entityCode}/events/{eventId}/providers:
+    get:
+      summary: Коллекция провайдеров
+      parameters:
+        - $ref: '#/parameters/entityCode'
+        - $ref: '#/parameters/eventId'
+      responses:
+        200:
+          description: Коллекция провайдеров
+          schema:
+            $ref: '#/definitions/providersCollection'
+        500:
+          $ref: '#/responses/Error'
+    post:
+          summary: Добавить провайдер для события
+          parameters:
+            - $ref: '#/parameters/entityCode'
+            - $ref: '#/parameters/eventId'
+            - name: provider
+              in: body
+              description: Провайдер
+              required: true
+              schema:
+                $ref: '#/definitions/providerRequest'
+          responses:
+            200:
+              description: Провайдер успешно добавлен
+              schema:
+                type: object
+                properties:
+                  providerId:
+                    type: integer
+                    description: Идентификатор добавленного провайдера
+            500:
+              $ref: '#/responses/Error'
+  /entities/{entityCode}/events/{eventId}/providers/{providerId}:
+    get:
+      summary: Информация о провайдере
+      description: Содержит информацию о шаблоне, правилах и используемых алгоритмах
+      parameters:
+        - $ref: '#/parameters/entityCode'
+        - $ref: '#/parameters/eventId'
+        - $ref: '#/parameters/providerId'
+      responses:
+        200:
+          description: Детальная информация
+          schema:
+            $ref: '#/definitions/provider'
+        500:
+          $ref: '#/responses/Error'
+    post:
+      summary: Обновить информацию о провайдере
+      description: Так же обновляются данные шаблона, правил и используемых алгоритмах
+      parameters:
+        - $ref: '#/parameters/entityCode'
+        - $ref: '#/parameters/eventId'
+        - $ref: '#/parameters/providerId'
+        - name: provider
+          in: body
+          description: Провайдер
+          required: true
+          schema:
+            $ref: '#/definitions/provider'
+      responses:
+        200:
+          description: Провайдер успешно обновлен
+        500:
+          $ref: '#/responses/Error'
+    delete:
+      summary: Удалить Провайдер
+      parameters:
+        - $ref: '#/parameters/entityCode'
+        - $ref: '#/parameters/eventId'
+        - $ref: '#/parameters/providerId'
+      responses:
+        200:
+          description: Удаление прошло успешно
+        500:
+          $ref: '#/responses/Error'
+  /entities/{entityCode}/events/{eventId}/providers/{providerId}/rule/{ruleId}:
+    delete:
+      summary: Удалить правило
+      parameters:
+        - $ref: '#/parameters/entityCode'
+        - $ref: '#/parameters/eventId'
+        - $ref: '#/parameters/providerId'
+        - $ref: '#/parameters/ruleId'
+      responses:
+        200:
+          description: Удаление прошло успешно
+        500:
+          $ref: '#/responses/Error'
+  /dictionaries/variables/template/{entityCode}:
+    get:
+      summary: Коллекция переменных
+      description: Переменные могут применяться в шаблоне
+      parameters:
+        - $ref: '#/parameters/entityCode'
+      responses:
+        200:
+          description: Коллекция переменных
+          schema:
+            $ref: '#/definitions/variablesCollection'
+        500:
+          $ref: '#/responses/Error'
+  /dictionaries/variables/consumers:
+      get:
+        summary: Коллекция переменных
+        description: Переменные могут применяться в списке получателей
+        responses:
+          200:
+            description: Коллекция переменных
+            schema:
+              $ref: '#/definitions/variablesCollection'
+          500:
+            $ref: '#/responses/Error'
+  /dictionaries/logic:
+      get:
+        summary: Коллекция логических операторов
+        description: Логические операторы, доступные для применения к утверждениям
+        responses:
+          200:
+            description: Коллекция операторов
+            schema:
+              $ref: '#/definitions/logicCollection'
+          500:
+            $ref: '#/responses/Error'
+  /dictionaries/assertions/{entityCode}:
+    get:
+      summary: Коллекция утверждений для сущности
+      parameters:
+        - $ref: '#/parameters/entityCode'
+      responses:
+        200:
+          description: Коллекция утверждений
+          schema:
+            $ref: '#/definitions/assertionsCollection'
+        500:
+          $ref: '#/responses/Error'
+definitions:
+  logicCollection:
+    type: array
+    title: Коллекция логических операторов
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+  assertionsCollection:
+    type: array
+    title: Коллекция утверждений
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+        name:
+          type: string
+  variablesCollection:
+    type: array
+    title: Коллекция переменных
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Символьный код
+        name:
+          type: string
+          description: Название
+  rule:
+    type: object
+    title: Правило
+    properties:
+      id:
+        type: integer
+        title: Идентификатор правила. Может отсутствовать, если правило еще не было сохранено.
+      assertions:
+        type: array
+        title: Коллекция кодов утверждений
+        items:
+          type: string
+          title: Код утверждения
+      logic:
+        type: string
+        title: Логика применения утверждений (and|or)
+      consumers:
+        type: array
+        title: Коллекция получателей
+        items:
+          type: string
+          title: Получатель
+  rulesCollection:
+    type: array
+    title: Коллекция правил
+    items:
+      $ref: '#/definitions/rule'
+  template:
+    type: object
+    title: Шаблон
+    properties:
+      title:
+        type: string
+        description: Заголовок
+      body:
+        type: string
+        description: Тело
+  provider:
+    type: object
+    title: Провайдер
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+        description: Название провайдера
+      code:
+        type: string
+        description: Символьный код провайдера
+      template:
+        $ref: '#/definitions/template'
+      rules:
+        $ref: '#/definitions/rulesCollection'
+  providerRequest:
+    type: object
+    title: Информация о Провайдере
+    properties:
+      providerCode:
+        type: string
+        description: Символьный код провайдера
+  providersCollection:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Если провайдер уже был добавлен, то содержит идентификатор провайдера.
+        name:
+          type: string
+          description: Название провайдера
+        code:
+          type: string
+          description: Символьный код провайдера
+  eventRequest:
+    type: object
+    title: Информация о событии
+    properties:
+      eventCode:
+        type: string
+        description: Символьный код события
+  eventsCollection:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Если событие уже было зарегистрированно, то содержит идентификатор события.
+        name:
+          type: string
+          description: Название события
+        code:
+          type: string
+          description: Символьный код события
+  entityCollection:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Название
+        code:
+          type: string
+          description: Симпольный код
+
