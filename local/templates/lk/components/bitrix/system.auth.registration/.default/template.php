@@ -126,8 +126,7 @@ if (strlen($arResult["BACKURL"]) > 0)
 
 	/* CAPTCHA */
 //	if ($arResult["USE_CAPTCHA"] == "Y")
-//	{
-		?>
+//	{ ?>
 		<div class="profile">
 			<?=GetMessage("CAPTCHA_REGF_TITLE")?>
 		</div>

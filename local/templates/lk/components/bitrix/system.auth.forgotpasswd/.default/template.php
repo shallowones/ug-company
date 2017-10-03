@@ -44,7 +44,7 @@ if (strlen($arResult["BACKURL"]) > 0)
         <?endif?>-->
     </div>
     <div class="buttons">
-        <a class="button" href="#">Назад</a>
+        <a class="button" href="<?=$arResult["AUTH_AUTH_URL"]?>">Назад</a>
         <button type="submit" class="button go"><?=GetMessage("AUTH_SEND")?></button>
     </div>
 

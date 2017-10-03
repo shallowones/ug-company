@@ -554,7 +554,6 @@ body {
   opacity: 1;
 }
 .tabs__item:after {
-  content: '';
   position: absolute;
   left: 0;
   bottom: -4px;

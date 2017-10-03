@@ -1,5 +1,6 @@
+</div>
             <?if (!$state && $USER->IsAuthorized()):?>
-                </div>
+
                 <div class="content-right">
                     <?$APPLICATION->IncludeComponent(
                             "bitrix:menu",

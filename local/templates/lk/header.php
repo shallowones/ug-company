@@ -7,7 +7,6 @@ global $USER;
 global $state;
 //if(!($USER->IsAuthorized()))  LocalRedirect('/lk/');
 $state = ($APPLICATION->GetCurDir() === ('/lk/statements/'));
-$pop = $APPLICATION->GetCurDir() === ('/lk/profile/');
 $arPage = array(
     'css' => [
         SITE_TEMPLATE_PATH.'/fonts/bundle.css',
@@ -67,7 +66,7 @@ foreach ($arPage['js'] as $js) {
         </div>
     </header>
     <main class="main">
-    <?if(!$state && $USER->IsAuthorized()):?>
+    <?if(!$state || !$USER->IsAuthorized() ):?>
      <div class="wrapper">
         <div class="content">
             <div class="content-left">

@@ -2,7 +2,6 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
-<div class="content-left">
     <h2 class="h2"><?ShowMessage($arParams["~AUTH_RESULT"]);?></h2>
     <h2 class="h2"><?ShowMessage($arResult['ERROR_MESSAGE']);?></h2>
 <?if($arResult["AUTH_SERVICES"]):?>
@@ -89,8 +88,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
         </table>
 
 </form>
-
-</div>
 
 
 <script type="text/javascript">
