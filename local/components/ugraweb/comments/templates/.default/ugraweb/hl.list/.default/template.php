@@ -12,16 +12,13 @@
 /** @global CMain $APPLICATION */
 ?>
 <? if (count($arResult['LIST']) > 0) { ?>
-    <a name="messages"></a>
-    <div class="request_text">
-        <span><h3>Сообщения:</h3></span>
-    </div>
+    <h2 class="h2">Сообщения:</h2>
     <? foreach ($arResult['LIST'] as $arItem) { ?>
-        <div class="request_who_files">
-                <span class="time_text">
-                    <? echo $arItem['DATE_INSERT']; ?>
-                </span>
-            <div class="request_who_files_text" id="block_msg_<?= $arItem['ID'] ?>">
+        <div class="comment-block">
+            <div>
+                <? echo $arItem['DATE_INSERT']; ?>
+            </div>
+            <div id="block_msg_<?= $arItem['ID'] ?>">
                 <p><?= $arItem['UF_MESSAGE'] ?></p>
             </div>
         </div>

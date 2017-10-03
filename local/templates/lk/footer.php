@@ -1,6 +1,6 @@
-</div>
-            <?if (!$state && $USER->IsAuthorized()):?>
-
+        <?if ($USER->IsAuthorized()):?>
+            <?if (!$state):?>
+                </div>
                 <div class="content-right">
                     <?$APPLICATION->IncludeComponent(
                             "bitrix:menu",
@@ -25,7 +25,35 @@
                         );?>
                     <div class="side exit"><a class="side__item" href="?logout=yes">Выйти из аккаунта</a></div>
                 </div>
+                <?else:?>
+                <div class="content-right">
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:menu",
+                        "right-menu",
+                        array(
+                            "ALLOW_MULTI_SELECT" => "N",
+                            "CHILD_MENU_TYPE" => "left",
+                            "COMPOSITE_FRAME_MODE" => "A",
+                            "COMPOSITE_FRAME_TYPE" => "AUTO",
+                            "DELAY" => "N",
+                            "MAX_LEVEL" => "1",
+                            "MENU_CACHE_GET_VARS" => array(
+                            ),
+                            "MENU_CACHE_TIME" => "3600",
+                            "MENU_CACHE_TYPE" => "N",
+                            "MENU_CACHE_USE_GROUPS" => "Y",
+                            "ROOT_MENU_TYPE" => "left",
+                            "USE_EXT" => "N",
+                            "COMPONENT_TEMPLATE" => "right-menu"
+                        ),
+                        false
+                    );?>
+                    <div class="side exit"><a class="side__item" href="?logout=yes">Выйти из аккаунта</a></div>
+                </div>
+                </div>
+                </section>
             <?endif;?>
+        <?endif;?>
         </div>
     </div>
 </main>

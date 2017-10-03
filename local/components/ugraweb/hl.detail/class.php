@@ -33,7 +33,7 @@ class HighloadDetailComponent extends CBitrixComponent
             // Заголовок заявления
             /** @var Bitrix\Main\Type\DateTime $date */
             $date = $arHlElement['UF_DATE_INSERT'];
-            $this->arResult['DATE_INSERT'] = $date->format('d.m.Y H:i');
+//            $this->arResult['DATE_INSERT'] = $date->format('d.m.Y H:i');
 
             $arFields = [];
             $obUserFieldEnum = new \CUserFieldEnum;

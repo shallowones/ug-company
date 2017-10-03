@@ -7,6 +7,7 @@
 /** @var string $componentName */
 /** @var string $componentTemplate */
 ?>
+
     <div class="content-left">
         <div class="table tab-block" id="all">
             <div class="table-line head">

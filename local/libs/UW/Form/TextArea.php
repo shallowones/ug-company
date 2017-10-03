@@ -21,6 +21,6 @@ class TextArea extends Text
             }
         }
 
-        return "<textarea id='{$this->id}' {$data}>{$this->value}</textarea>";
+        return "<textarea class='box' id='{$this->id}' {$data}>{$this->value}</textarea>";
     }
 }

@@ -46,7 +46,7 @@ if (\UW\Acl\Storage::get()->isAllowed('statement', 'edit') === true):
             $arResult['URL_TEMPLATES']['edit']
         );
     ?>
-    <p><a href="<?= $editURL ?>"><b>Редактировать заявление</b></a></p>
+    <p class="h2"><a class="button" href="<?= $editURL ?>">Редактировать заявление</a></p>
 <? endif;
 if (\UW\Acl\Storage::get()->isAllowed('statementStatus', 'edit') === true):
     $editStatusURL = $arResult["FOLDER"] . str_replace(

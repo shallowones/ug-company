@@ -15,27 +15,30 @@
     $arFields = $arResult['FIELDS'];
     ?>
     <h2>Заявление № <?= $arFields['ID'] ?> от <?= $arResult['DATE_INSERT'] ?></h2>
-    <table class="temp-table">
-        <? foreach ($arFields as $arField): ?>
-            <tr>
-                <td><b><?= $arField['title'] ?></b></td>
-                <td>
-                    <? if ($arField['type'] === 'file'): ?>
-                        <? if ($arField['multiple'] === 'Y'): ?>
-                            <? foreach ($arField['value'] as $arFile): ?>
-                                <a href="<?= $arFile['src'] ?>"><?= $arFile['name'] ?></a><br>
-                            <? endforeach; ?>
+    <div class="detail">
+
+            <? foreach ($arFields as $arField): ?>
+                <div class="profile">
+                    <div class="profile-left"><?= $arField['title'] ?></div>
+                    <div class="profile-right">
+                        <? if ($arField['type'] === 'file'): ?>
+                            <? if ($arField['multiple'] === 'Y'): ?>
+                                <? foreach ($arField['value'] as $arFile): ?>
+                                    <a href="<?= $arFile['src'] ?>"><?= $arFile['name'] ?></a><br>
+                                <? endforeach; ?>
+                            <? else: ?>
+                                <a href="<?= $arField['value']['src'] ?>"><?= $arField['value']['name'] ?></a>
+                            <? endif; ?>
                         <? else: ?>
-                            <a href="<?= $arField['value']['src'] ?>"><?= $arField['value']['name'] ?></a>
+                            <?= $arField['value'] ?>
                         <? endif; ?>
-                    <? else: ?>
-                        <?= $arField['value'] ?>
-                    <? endif; ?>
-                </td>
-            </tr>
-        <? endforeach; ?>
-    </table>
+                    </div>
+                </div>
+            <? endforeach; ?>
+
+    </div>
 <? else: ?>
     <p>Заявление № <?= intval($arParams['ELEMENT_ID']) ?> не найдено.</p>
 <? endif; ?>
-<p><a href="<?= $arParams['FOLDER'] ?>">Вернуться к списку</a></p>
+<p><a class="button" href="<?= $arParams['FOLDER'] ?>">Вернуться к списку</a> </p>
+

@@ -3,21 +3,8 @@ define("NEED_AUTH", true); //доступ только авторизованн�
 define("STATEMENT", "Y");
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Заявления");
-?>
 
-    <section class="main-head">
-        <div class="wrapper">Список заявлений</div>
-    </section>
-    <section class="tabs-block">
-        <div class="tabs wrapper js-tabs">
-            <button class="tabs__item active" type="button" data-tab="#all">Все</button>
-            <button class="tabs__item" type="button" data-tab="#complited">Завершенные</button>
-        </div>
-    </section>
-    <section class="content-block">
-        <div class="content wrapper">
-
-<?$APPLICATION->IncludeComponent(
+?><?$APPLICATION->IncludeComponent(
 	"ugraweb:statements",
 	"",
 	Array(
@@ -33,9 +20,9 @@ $APPLICATION->SetTitle("Заявления");
 		"COL_NAME" => "",
 		"COMPOSITE_FRAME_MODE" => "A",
 		"COMPOSITE_FRAME_TYPE" => "AUTO",
-		"DETAIL_PAGE_URL" => "/statements/#ID#/",
-		"DRAFTS_ADD_URL" => "/statements/add/?draft=#ID#&dsave=#ID#",
-		"DRAFTS_PAGE_URL" => "/statements/drafts/",
+		"DETAIL_PAGE_URL" => "/lk/statements/#ID#/",
+		"DRAFTS_ADD_URL" => "/lk/statements/add/?draft=#ID#&dsave=#ID#",
+		"DRAFTS_PAGE_URL" => "/lk/statements/drafts/",
 		"GROUPS_FOR_SELECT_LIST" => array("INDIVIDUALS","ENTREPRENEUR","ORGANIZATION",""),
 		"GROUP_MODERATORS" => "MODERATORS",
 		"HL_CODE" => "Statements",
@@ -54,32 +41,5 @@ $APPLICATION->SetTitle("Заявления");
 false,
 Array(
 	'ACTIVE_COMPONENT' => 'Y'
-))?>
-
-    <div class="content-right">
-        <?$APPLICATION->IncludeComponent(
-            "bitrix:menu",
-            "right-menu",
-            array(
-                "ALLOW_MULTI_SELECT" => "N",
-                "CHILD_MENU_TYPE" => "left",
-                "COMPOSITE_FRAME_MODE" => "A",
-                "COMPOSITE_FRAME_TYPE" => "AUTO",
-                "DELAY" => "N",
-                "MAX_LEVEL" => "1",
-                "MENU_CACHE_GET_VARS" => array(
-                ),
-                "MENU_CACHE_TIME" => "3600",
-                "MENU_CACHE_TYPE" => "N",
-                "MENU_CACHE_USE_GROUPS" => "Y",
-                "ROOT_MENU_TYPE" => "left",
-                "USE_EXT" => "N",
-                "COMPONENT_TEMPLATE" => "right-menu"
-            ),
-            false
-        );?>
-        <div class="side exit"><a class="side__item" href="?logout=yes">Выйти из аккаунта</a></div>
-    </div>
-    </div>
-    </section>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+)
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

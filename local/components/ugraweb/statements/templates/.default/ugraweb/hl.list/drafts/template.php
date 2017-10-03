@@ -14,17 +14,21 @@
     <h2>Список черновиков</h2>
 <? if (count($arResult['LIST']) > 0): ?>
     <? foreach ($arResult['LIST'] as $key => $arStatement): ?>
-        <p>
-            <a href="<?= $arStatement['DETAIL_URL'] ?>">Черновик № <?= $arStatement['ID'] ?>
-                от <?= $arStatement['DATE_INSERT'] ?></a>
-            <a
-                    href="?draftDelete=<?= $arStatement['ID'] ?>"
-                    class="draft-delete-link"
-                    onclick="return confirm('Удалить черновик?');"
-            >
-                x
-            </a>
-        </p>
+        <div class="profile">
+            <div class="profile-left">
+                <a href="<?= $arStatement['DETAIL_URL'] ?>"><p>Черновик № <?= $arStatement['ID'] ?>
+                    от <?= $arStatement['DATE_INSERT'] ?></p></a>
+            </div>
+            <div class="profile-right">
+                <a
+                        href="?draftDelete=<?= $arStatement['ID'] ?>"
+                        class="draft-delete-link"
+                        onclick="return confirm('Удалить черновик?');"
+                >
+                   <p>Удалить</p>
+                </a>
+            </div>
+        </div>
     <? endforeach; ?>
     <? if ($arResult['NAV_STRING']): ?>
         <br><?= $arResult['NAV_STRING'] ?>

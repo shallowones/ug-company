@@ -70,4 +70,17 @@ foreach ($arPage['js'] as $js) {
      <div class="wrapper">
         <div class="content">
             <div class="content-left">
-    <?endif;?>
+                <?else:?>
+                <section class="main-head">
+                    <div class="wrapper">Список заявлений</div>
+                </section>
+                <section class="tabs-block">
+                    <div class="tabs wrapper js-tabs">
+                        <button class="tabs__item active" type="button" data-tab="#all">Все</button>
+                        <button class="tabs__item" type="button" data-tab="#complited">Завершенные</button>
+                    </div>
+                </section>
+                <section class="content-block">
+                    <div class="content wrapper">
+
+                    <?endif;?>
