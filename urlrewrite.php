@@ -16,6 +16,12 @@ $arUrlRewrite = array(
 		"CONDITION" => "#^/#",
 		"RULE" => "",
 		"ID" => "ugraweb:requisites",
+		"PATH" => "/lk/profile/index.php",
+	),
+	array(
+		"CONDITION" => "#^/#",
+		"RULE" => "",
+		"ID" => "ugraweb:requisites",
 		"PATH" => "/lk/index.php",
 	),
 );

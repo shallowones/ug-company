@@ -33,15 +33,16 @@ class Radio extends Input
                 $checked = ' checked ';
             }
             $radio .= <<<RADIO
-<label>
+
 <input
+    class="magic-radio"
     type="radio"
     name="{$this->attributes['name']}"
     id="{$this->id}_{$arOption['id']}"
     value="{$arOption['id']}"
     {$checked}
->{$arOption['value']}
-</label>
+><label for="{$this->id}_{$arOption['id']}">{$arOption['value']}
+</label><br>
 RADIO;
         }
 

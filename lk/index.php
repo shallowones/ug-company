@@ -8,7 +8,25 @@ global $APPLICATION, $USER;
 $APPLICATION->SetTitle("Личный кабинет");
 ?>
    <? if($USER->IsAuthorized()):
-        LocalRedirect("/lk/statements/");?>
+        $arGroup = \CGroup::GetList($by = 'id', $order = 'asc', ['STRING_ID' => 'INDIVIDUALS|ENTREPRENEUR|ORGANIZATION|MODERATORS']);
+        $arUsersGroups = [];
+        if(intval($arGroup->SelectedRowsCount()) > 0)
+        {
+            while($arGroups = $arGroup->Fetch())
+            {
+                $arUsersGroups[] = $arGroups['ID'];
+            }
+        }
+
+        if(CSite::InGroup($arUsersGroups))
+        {
+            LocalRedirect("/lk/statements/");
+        }
+        else
+        {
+            LocalRedirect("/lk/profile/");
+        }
+    ?>
     <?else:?>
         <div id="reset">
                 <h1 class="h1">Личный кабинет тех. присоединение</h1>

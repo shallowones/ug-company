@@ -92,6 +92,9 @@ class CGroupsEdit extends CBitrixComponent
                 'NAME' => $arGroupSelect['NAME']
             ];
         }
+        $this->arResult['INDIVIDUALS'] = \CGroup::GetList(
+            $by = 'id', $order = 'asc',
+            ['STRING_ID' => 'INDIVIDUALS'])->Fetch();
 
         return $this;
     }

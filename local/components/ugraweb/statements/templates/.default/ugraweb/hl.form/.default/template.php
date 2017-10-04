@@ -27,15 +27,60 @@ foreach ($controls as $control) {
         case $control instanceof \UW\Form\Text:
         case $control instanceof \UW\Form\TextArea:
         case $control instanceof \UW\Form\Select:
-        case $control instanceof \UW\Form\Date:
+            $html .= "<div class='profile'>
+                        <div class='profile-left'>
+                            {$control->label()}
+                            {$required}
+                            </div>
+                             <div class='profile-right'>
+                            {$control->render()}
+                             </div>
+                            <br><small style='color:red''>
+                            {$control->error()}</small>
+                            </div>";
+            break;
         case $control instanceof \UW\Form\File:
-            $html .= "{$control->label()}{$required}<br> {$control->render()}<br><small style='color:red''>{$control->error()}</small>";
+            $html .= "
+                            {$control->label()}
+                            {$required}
+                          <div class='profile'>
+                                {$control->render()}
+                                <small style='color:red''>
+                                {$control->error()}</small>
+                            </div>";
+            break;
+        case $control instanceof \UW\Form\Date:
+            $html .= "<div class='profile'>
+                        <div class='profile-left'>
+                            {$control->label()}
+                            {$required}
+                            </div>
+                       
+                            {$control->render()}
+
+                            <br><small style='color:red''>
+                            {$control->error()}</small>
+                            </div>";
             break;
         case $control instanceof \UW\Form\CheckBox:
-            $html .= "<label>{$control->render()} {$control->label()}{$required}</label><br><small style='color:red''>{$control->error()}</small>";
+            $html .= "<div class='profile-check'>
+                        {$control->render()}{$required}
+                        <br>
+                        <small style='color:red''>{$control->error()}</small>
+                        </div>";
             break;
         case $control instanceof \UW\Form\Radio:
-            $html .= "{$control->label()}:{$required}<br>{$control->render()}<br><small style='color:red''>{$control->error()}</small>";
+            $html .= " <br><div class='profile'>
+                        <div class='profile-left'>
+                          {$control->label()}:
+                          {$required}
+                          </div>
+                         <div class='profile-right'>
+                          {$control->render()}
+                          </div>
+                          <br><small style='color:red''>
+                          {$control->error()}</small>
+                      </div>";
             break;
     }
 }
@@ -52,18 +97,21 @@ $count = 0;
         <span <? if ($menuItem['current']) echo ' style="font-weight:bold;" '; ?>><?= $menuItem['label'] ?></span>
     <? endforeach; ?>
 </p>
-<form action="<?= POST_FORM_ACTION_URI ?>" method="POST">
+<form class="profile__form" action="<?= POST_FORM_ACTION_URI ?>" method="POST">
     <fieldset>
         <legend><? echo $step->label ?></legend>
         <input type="hidden" name="currentStep" value="<? echo $step->id ?>">
         <? echo $html ?><br>
-        <?
-        if (!empty($prevStepCode)) {
-            ?><a href="<?= $APPLICATION->GetCurPageParam('prevStep=' . $prevStepCode, ['prevStep']) ?>"><b><? echo $prevText ?></b></a><?
-        }
-        ?>
-        <button type="submit" name="nextStep" value="<? echo $nextStepCode ?>"><? echo $nextText ?></button>
-        <br><br>
-        <button type="submit" name="saveDraft" value="saveDraft">Сохранить черновик</button>
+        <div class="buttons">
+
+            <?
+            if (!empty($prevStepCode)) {
+                ?><a class="button" href="<?= $APPLICATION->GetCurPageParam('prevStep=' . $prevStepCode, ['prevStep']) ?>"><? echo $prevText ?></a><?
+            }
+            ?>
+
+            <button class="button" type="submit" name="saveDraft" value="saveDraft">Сохранить черновик</button>
+            <button class="button go" type="submit" name="nextStep" value="<? echo $nextStepCode ?>"><? echo $nextText ?></button>
+        </div>
     </fieldset>
 </form>

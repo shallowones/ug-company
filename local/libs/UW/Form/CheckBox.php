@@ -15,7 +15,6 @@ namespace UW\Form;
 class CheckBox extends Input
 {
     const SESSION_KEY = 'CheckBoxInput';
-
     public function __construct($id, array $attributes = [], $label = '')
     {
         $this->label = $label;
@@ -25,7 +24,6 @@ class CheckBox extends Input
     public function render()
     {
         $data = '';
-
         foreach ($this->attributes as $key => $value) {
             if($key == 'value') continue;
             if(is_bool($value)) {
@@ -38,7 +36,7 @@ class CheckBox extends Input
             $data .= ' checked ';
         }
 
-        return "<input type='checkbox'  id='{$this->id}' {$data} value='1'/>";
+        return "<input class='profile-check__input' type='checkbox'  id='{$this->id}' {$data} value='1'/><label class='profile-check__label' for='{$this->id}'>$this->label</label>";
     }
 
     /**

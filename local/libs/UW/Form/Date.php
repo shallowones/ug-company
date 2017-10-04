@@ -35,16 +35,14 @@ class Date extends Input
         }
 
         $calendar = <<<CALENDAR
-<img 
-    src="/bitrix/js/main/core/images/calendar-icon.gif" 
-    class="calendar-icon"
+<span 
+    class='add-date'
     onclick="BX.calendar({node:this, field:'{$this->id}', form: '', bTime: false, currentTime: '', bHideTime: true});"
-    onmouseover="BX.addClass(this, 'calendar-icon-hover');" 
-    onmouseout="BX.removeClass(this, 'calendar-icon-hover');"
->
+
+></span>
 CALENDAR;
 
-        return "<input type='text'  id='{$this->id}' {$data}/> {$calendar}";
+        return "<div class='profile-right file'><input class='profile__text' type='text'  id='{$this->id}' {$data}/> {$calendar}</div>";
     }
 
     public function validate()

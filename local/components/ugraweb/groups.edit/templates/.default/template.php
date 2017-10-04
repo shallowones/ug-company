@@ -7,6 +7,7 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
     die();
 ?>
+
     <? if (!$arResult['SELECTED_GROUP']): ?>
         <h2 class="h2">Пожалуйста, выберите необходимую группу:</h2>
 
@@ -17,8 +18,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
                     <input type="radio"
                            name="group-select[]"
                            id="group-select__<? echo $arGroup['ID'] ?>"
-                            <?if($arGroup['ID'] == "7"):?>
-                                    checked
+                            <?if($arGroup['ID'] == $arResult['INDIVIDUALS']['ID']):?>
+                                checked
                             <?endif;?>
                            value="<? echo $arGroup['ID'] ?>">
 

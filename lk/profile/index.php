@@ -4,8 +4,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
 global $APPLICATION, $USER;
 $APPLICATION->SetTitle("Профиль");
-?>
-		<? $boolSelectedGroup = $APPLICATION->IncludeComponent(
+?><? $boolSelectedGroup = $APPLICATION->IncludeComponent(
             "ugraweb:groups.edit",
             ".default",
             array(
@@ -25,28 +24,28 @@ $APPLICATION->SetTitle("Профиль");
         );?>
 	        <? if ($boolSelectedGroup): // если группа у пользователя уже установлена ?>
 	            <?$APPLICATION->IncludeComponent(
-                "bitrix:main.profile",
-                "main-profile",
-                Array(
-                    "AJAX_MODE" => "N",
-                    "AJAX_OPTION_ADDITIONAL" => "",
-                    "AJAX_OPTION_HISTORY" => "N",
-                    "AJAX_OPTION_JUMP" => "N",
-                    "AJAX_OPTION_STYLE" => "Y",
-                    "CHECK_RIGHTS" => "N",
-                    "COMPONENT_TEMPLATE" => "main-profile",
-                    "SEND_INFO" => "N",
-                    "SET_TITLE" => "Y",
-                    "USER_PROPERTY" => array(0=>"UF_PASSPORT_SERIES",1=>"UF_PASSPORT_NUMBER",2=>"UF_PASSPORT_CODE",3=>"UF_PASSPORT_ISSUED",4=>"UF_PASSPORT_DATE",5=>"UF_SNILS",),
-                    "USER_PROPERTY_NAME" => "",
-                    "USER_ROWS" => array(0=>"NAME",1=>"SECOND_NAME",2=>"LAST_NAME",3=>"PERSONAL_PHONE",)
-                )
-            );?>
+	"bitrix:main.profile",
+	"main-profile",
+	Array(
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"CHECK_RIGHTS" => "N",
+		"COMPONENT_TEMPLATE" => "main-profile",
+		"SEND_INFO" => "N",
+		"SET_TITLE" => "Y",
+		"USER_PROPERTY" => array(0=>"UF_PASSPORT_SERIES",1=>"UF_PASSPORT_NUMBER",2=>"UF_PASSPORT_CODE",3=>"UF_PASSPORT_ISSUED",4=>"UF_PASSPORT_DATE",5=>"UF_SNILS",),
+		"USER_PROPERTY_NAME" => "",
+		"USER_ROWS" => array(0=>"NAME",1=>"SECOND_NAME",2=>"LAST_NAME",3=>"PERSONAL_PHONE",)
+	)
+);?>
 	            <? // Редактирование реквизитов ?>
 	            <?$APPLICATION->IncludeComponent(
 	"ugraweb:requisites",
 	".default",
-	array(
+	Array(
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"AJAX_OPTION_HISTORY" => "N",
@@ -57,27 +56,17 @@ $APPLICATION->SetTitle("Профиль");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"COMPONENT_TEMPLATE" => ".default",
-		"GROUPS_FOR_SELECT_LIST" => array(
-			0 => "",
-			1 => "INDIVIDUALS",
-			2 => "ENTREPRENEUR",
-			3 => "ORGANIZATION",
-			4 => "",
-		),
+		"COMPOSITE_FRAME_MODE" => "A",
+		"COMPOSITE_FRAME_TYPE" => "AUTO",
+		"GROUPS_FOR_SELECT_LIST" => array(0=>"",1=>"INDIVIDUALS",2=>"ENTREPRENEUR",3=>"ORGANIZATION",4=>"",),
 		"GROUP_MODERATORS" => "MODERATORS",
 		"HL_CODE" => "OrganizationRequisites",
 		"ORGANIZATION_FIELD_CODE" => "UF_ORG_ID",
 		"SEF_FOLDER" => "/",
 		"SEF_MODE" => "Y",
-		"COMPOSITE_FRAME_MODE" => "A",
-		"COMPOSITE_FRAME_TYPE" => "AUTO",
-		"SEF_URL_TEMPLATES" => array(
-			"requisites" => "",
-		)
-	),
-	false
+		"SEF_URL_TEMPLATES" => array("requisites"=>"",)
+	)
 );?>
-
             <?/* $APPLICATION->IncludeComponent(
 		"ugraweb:hl.edit",
 		".default",
@@ -150,5 +139,3 @@ $APPLICATION->SetTitle("Профиль");
 		false
 	); */?>
 		<? endif; ?>
-<?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");

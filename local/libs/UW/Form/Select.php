@@ -45,7 +45,7 @@ class Select extends Input
             $options .= '<option value="' . $arOption['id'] . '" ' . $selected . '>' . $arOption['value'] . '</option>';
         }
 
-        return "<select id='{$this->id}' {$data}>{$options}</select>";
+        return "<select class='profile__select' id='{$this->id}' {$data}>{$options}</select>";
     }
 
     public function validate()
