@@ -125,8 +125,8 @@ if (strlen($arResult["BACKURL"]) > 0)
         <?// ******************** /User properties ***************************************************
 
 	/* CAPTCHA */
-//	if ($arResult["USE_CAPTCHA"] == "Y")
-//	{ ?>
+	if ($arResult["USE_CAPTCHA"] == "Y")
+	{?>
 		<div class="profile">
 			<?=GetMessage("CAPTCHA_REGF_TITLE")?>
 		</div>
@@ -144,7 +144,7 @@ if (strlen($arResult["BACKURL"]) > 0)
         </div>
 
 		<?
-//	}
+	}
 	/* CAPTCHA */
 	?>
         <div class="buttons">

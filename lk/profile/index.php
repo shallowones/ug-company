@@ -139,3 +139,6 @@ $APPLICATION->SetTitle("Профиль");
 		false
 	); */?>
 		<? endif; ?>
+
+
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,5 +1,5 @@
         <?if ($USER->IsAuthorized()):?>
-            <?if (!$state):?>
+            <?if(!$state):?>
                 </div>
                 <div class="content-right">
                     <?$APPLICATION->IncludeComponent(
