@@ -23,7 +23,8 @@
                             ),
                             false
                         );?>
-                    <div class="side exit"><a class="side__item" href="?logout=yes">Выйти из аккаунта</a></div>
+                    <div class="side exit"><a class="side__item" href="?logout=yes">Выйти из аккаунта</a>
+                    </div>
                 </div>
                 <?else:?>
                 <div class="content-right">
@@ -49,13 +50,13 @@
                         false
                     );?>
                     <div class="side exit"><a class="side__item" href="?logout=yes">Выйти из аккаунта</a></div>
+                    <a class="statement" href="add/">Подать заявление<br>на техприсоединение</a>
                 </div>
                 </div>
                 </section>
             <?endif;?>
         <?endif;?>
-        </div>
-    </div>
+
 </main>
 <footer class="footer">
     <div class="footer-flex wrapper">
