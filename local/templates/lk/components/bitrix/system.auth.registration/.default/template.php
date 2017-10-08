@@ -42,9 +42,9 @@ if (strlen($arResult["BACKURL"]) > 0)
 			<h1 class="h1"><?=GetMessage("AUTH_REGISTER")?></h1>
 
             <div class="profile">
-                <h2 class="profile-left">
+                <div class="profile-left">
                     <?if($arResult["EMAIL_REQUIRED"]):?><span class="starrequired">*</span><?endif?><?=GetMessage("AUTH_EMAIL")?>
-                </h2>
+                </div>
                 <div class="profile-right">
                     <input class="profile__text" type="text" id="reg_email" name="USER_EMAIL" maxlength="255" value="<?=$arResult["USER_EMAIL"]?>" required />
                 </div>
@@ -52,9 +52,9 @@ if (strlen($arResult["BACKURL"]) > 0)
 
 
             <div class="profile">
-                <h2 class="profile-left">
+                <div class="profile-left">
                     <span class="starrequired">*</span><?=GetMessage("AUTH_PASSWORD_REQ")?>
-                </h2>
+                </div>
                 <div class="profile-right">
                     <input class="profile__text" id="password1" type="password" name="USER_PASSWORD" maxlength="50" value="<?=$arResult["USER_PASSWORD"]?>" autocomplete="off"
                            required
@@ -79,9 +79,9 @@ if (strlen($arResult["BACKURL"]) > 0)
         <?endif?>
 
             <div class="profile">
-                <h2 class="profile-left">
+                <div class="profile-left">
                     <span class="starrequired">*</span><?=GetMessage("AUTH_CONFIRM")?>
-                </h2>
+                </div>
                 <div class="profile-right">
                     <input class="profile__text" id="password2" type="password" name="USER_CONFIRM_PASSWORD" maxlength="50" value="<?=$arResult["USER_CONFIRM_PASSWORD"]?>" autocomplete="off"
                            required
@@ -91,9 +91,9 @@ if (strlen($arResult["BACKURL"]) > 0)
             </div>
 
             <div class="profile">
-                <h2 class="profile-left">
+                <div class="profile-left">
                     <?=GetMessage("AUTH_LAST_NAME")?>
-                </h2>
+                </div>
                 <div class="profile-right">
                     <input class="profile__text" type="text" name="USER_LAST_NAME" maxlength="50" value="<?=$arResult["USER_LAST_NAME"]?>" />
                 </div>
@@ -101,9 +101,9 @@ if (strlen($arResult["BACKURL"]) > 0)
 
 
             <div class="profile">
-                <h2 class="profile-left">
+                <div class="profile-left">
                     <?=GetMessage("AUTH_NAME")?>
-                </h2>
+                </div>
                 <div class="profile-right">
                     <input class="profile__text" type="text" name="USER_NAME" maxlength="50" value="<?=$arResult["USER_NAME"]?>" />
                 </div>

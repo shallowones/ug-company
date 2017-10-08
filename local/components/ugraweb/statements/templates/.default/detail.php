@@ -39,15 +39,15 @@ if ($arResult['IS_MODERATOR'] !== 'Y' && $element['USER_ID'] !== $USER->GetID())
     $component->getGroupControls($groupName);
 }
 
-if (\UW\Acl\Storage::get()->isAllowed('statement', 'edit') === true):
-    $editURL = $arResult["FOLDER"] . str_replace(
-            '#ELEMENT_ID#',
-            $arResult['VARIABLES']['ELEMENT_ID'],
-            $arResult['URL_TEMPLATES']['edit']
-        );
-    ?>
-    <p class="h2"><a class="button" href="<?= $editURL ?>">Редактировать заявление</a></p>
-<? endif;
+//if (\UW\Acl\Storage::get()->isAllowed('statement', 'edit') === true):
+//    $editURL = $arResult["FOLDER"] . str_replace(
+//            '#ELEMENT_ID#',
+//            $arResult['VARIABLES']['ELEMENT_ID'],
+//            $arResult['URL_TEMPLATES']['edit']
+//        );
+//    ?>
+<!--    <p class="h2"><a class="button" href="--><?//= $editURL ?><!--">Редактировать заявление</a></p>-->
+<?// endif;
 if (\UW\Acl\Storage::get()->isAllowed('statementStatus', 'edit') === true):
     $editStatusURL = $arResult["FOLDER"] . str_replace(
             '#ELEMENT_ID#',
@@ -70,14 +70,14 @@ $APPLICATION->IncludeComponent(
     $component
 );
 
-$APPLICATION->IncludeComponent(
-    "ugraweb:comments",
-    ".default",
-    array(
-        "ID" => $arResult['VARIABLES']['ELEMENT_ID'],
-        "COMPONENT_TEMPLATE" => ".default",
-        "HL_CODE" => $arParams['HL_CODE_MESSAGES']
-    ),
-    false
-);
+//$APPLICATION->IncludeComponent(
+//    "ugraweb:comments",
+//    ".default",
+//    array(
+//        "ID" => $arResult['VARIABLES']['ELEMENT_ID'],
+//        "COMPONENT_TEMPLATE" => ".default",
+//        "HL_CODE" => $arParams['HL_CODE_MESSAGES']
+//    ),
+//    false
+//);
 

@@ -34,7 +34,7 @@ class HighloadDetailComponent extends CBitrixComponent
             /** @var Bitrix\Main\Type\DateTime $date */
             $date = $arHlElement['UF_DATE_INSERT'];
             $this->arResult['DATE_INSERT'] = $date->format('d.m.Y H:i');
-
+            $this->arResult['ID'] = $arHlElement['ID'];
             $arFields = [];
             $obUserFieldEnum = new \CUserFieldEnum;
             foreach ($this->arParams['CONTROLS'] as $code) {

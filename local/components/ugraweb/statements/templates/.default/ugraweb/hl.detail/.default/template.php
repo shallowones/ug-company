@@ -14,7 +14,7 @@
 <? if ($arResult['FIELDS']):
     $arFields = $arResult['FIELDS'];
     ?>
-    <h2>Заявление № <?= $arFields['ID'] ?> от <?= $arResult['DATE_INSERT'] ?></h2>
+    <h2>Заявление № <?= $arResult['ID'] ?> от <?= $arResult['DATE_INSERT'] ?></h2>
     <div class="detail">
 
             <? foreach ($arFields as $arField): ?>

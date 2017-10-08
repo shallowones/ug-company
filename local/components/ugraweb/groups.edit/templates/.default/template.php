@@ -9,8 +9,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 ?>
 
     <? if (!$arResult['SELECTED_GROUP']): ?>
-        <h2 class="h2">Пожалуйста, выберите необходимую группу:</h2>
-
+        <h2 class="h2">Выберите тип пользователя:</h2>
+        <p>Для каждого типа пользователей свой набор полей для ввода информации, а также отдельные формы подачи заявления.</p>
         <form action="<? echo POST_FORM_ACTION_URI ?>" method="post">
             <div class="radio-group">
                 <? foreach ($arResult['GROUPS_SELECT'] as $arGroup): ?>
@@ -27,7 +27,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 
                 <? endforeach; ?>
             </div>
-            <br><br>
+            <p><i>ВНИМАНИЕ: тип пользователья <span style="color: red;">НЕЛЬЗЯ</span> будет изменить.</i></p>
             <button class="button go" type="submit" name="select-submit" value="Y">Выбрать</button>
         </form>
     <? endif; ?>
