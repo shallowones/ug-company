@@ -23,7 +23,7 @@
                             <div class="table-line__number">#<?= $arStatement['ID']?></div>
                             <div class="table-line__date"><?= $arStatement['DATE_INSERT']?></div>
                             <div class="table-line__name"><?= $arStatement['UF_VIEW_REQUEST_SUB']?></div>
-                            <div class="table-line__state">Текущий статус</div>
+                            <div class="table-line__state"><?= $arStatement['UF_STATUS']?></div>
                         </div>
                 </a>
                 <? endforeach; ?>

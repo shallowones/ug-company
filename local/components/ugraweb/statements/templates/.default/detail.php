@@ -38,16 +38,18 @@ if ($arResult['IS_MODERATOR'] !== 'Y' && $element['USER_ID'] !== $USER->GetID())
     $groupName = $component->checkAllowUser($groups);
     $component->getGroupControls($groupName);
 }
+?><div class="buttons"><?
+    if (\UW\Acl\Storage::get()->isAllowed('statement', 'edit') === true):
+        $editURL = $arResult["FOLDER"] . str_replace(
+                '#ELEMENT_ID#',
+                $arResult['VARIABLES']['ELEMENT_ID'],
+                $arResult['URL_TEMPLATES']['edit']
+            );
+        ?>
+      <p><a class="button" href="<?= $editURL ?>">Редактировать заявление</a></p>
+    <? endif;
+//}
 
-//if (\UW\Acl\Storage::get()->isAllowed('statement', 'edit') === true):
-//    $editURL = $arResult["FOLDER"] . str_replace(
-//            '#ELEMENT_ID#',
-//            $arResult['VARIABLES']['ELEMENT_ID'],
-//            $arResult['URL_TEMPLATES']['edit']
-//        );
-//    ?>
-<!--    <p class="h2"><a class="button" href="--><?//= $editURL ?><!--">Редактировать заявление</a></p>-->
-<?// endif;
 if (\UW\Acl\Storage::get()->isAllowed('statementStatus', 'edit') === true):
     $editStatusURL = $arResult["FOLDER"] . str_replace(
             '#ELEMENT_ID#',
@@ -55,9 +57,10 @@ if (\UW\Acl\Storage::get()->isAllowed('statementStatus', 'edit') === true):
             $arResult['URL_TEMPLATES']['status']
         );
     ?>
-    <p><a href="<?= $editStatusURL ?>"><b>Изменить статус</b></a></p>
-<? endif;
-
+    <p><a class="button" href="<?= $editStatusURL ?>">Изменить статус</a></p>
+<? endif;?>
+</div>
+<?
 $APPLICATION->IncludeComponent(
     'ugraweb:hl.detail',
     '',

@@ -7,14 +7,16 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
  * @var Step $step
  */
 global $APPLICATION;
-
 $step = $arResult['step'];
 $nextStepCode = $arResult['nextStep'];
 $prevStepCode = $arResult['prevStep'];
 
 $controls = $step->controls();
-
 $html = '';
+$id =[];
+$type_name = CUserFieldEnum::GetList([], ["USER_FIELD_NAME" => 'UF_TYPE_GET_DOCUMENT', "XML_ID" => "post" ])->GetNext();
+$id = $type_name['ID'];
+
 foreach ($controls as $control) {
     /** @var Input $control */
     try {
@@ -22,23 +24,28 @@ foreach ($controls as $control) {
     } catch (Exception $e) {
         $required = '';
     }
-
     switch (true) {
         case $control instanceof \UW\Form\Text:
         case $control instanceof \UW\Form\TextArea:
+        $html .= "<div class='profile'>                    
+                                <div class='profile-left'>
+                                    {$control->label()}
+                                    {$required}
+                                    </div>
+                                     <div class='profile-right'>
+                                    {$control->render()}
+                                     </div>
+                                    <br><small style='color:red''>
+                                    {$control->error()}</small>
+                                    </div>";
+        break;
+
         case $control instanceof \UW\Form\Select:
-            $html .= "<div class='profile'>
-                        <div class='profile-left'>
-                            {$control->label()}
-                            {$required}
-                            </div>
-                             <div class='profile-right'>
-                            {$control->render()}
-                             </div>
-                            <br><small style='color:red''>
-                            {$control->error()}</small>
-                            </div>";
+
+                    $html .=  $control->render();
             break;
+
+
         case $control instanceof \UW\Form\File:
             $html .= "
                             {$control->label()}
@@ -114,4 +121,14 @@ $count = 0;
             <button class="button go" type="submit" name="nextStep" value="<? echo $nextStepCode ?>"><? echo $nextText ?></button>
         </div>
     </fieldset>
+    <script>
+
+      $('[name="type_get_document"]').off().on('change', function () {
+        if (this.value === '<?echo $id?>') {
+          $('#office').hide()
+          return
+        }
+        $('#office').show()
+      })
+    </script>
 </form>

@@ -200,6 +200,7 @@ class StatementComponent extends CBitrixComponent
     {
         $controlsAll = [
             'INDIVIDUALS' => [
+                'UF_STATUS',
                 'UF_VIEW_REQUEST_SUB',
                 'UF_TYPE_GET_DOCUMENT',
                 'UF_LIST_OFFICE',
@@ -242,8 +243,10 @@ class StatementComponent extends CBitrixComponent
                 'UF_FILE_SCAN_PRAVO',
                 'UF_FILE_PROTOCOL',
                 'UF_FILE_DOVERENOST',
+
             ],
             'ENTREPRENEUR' => [
+                'UF_STATUS',
                 'UF_VIEW_REQUEST_SUB',
                 'UF_TYPE_GET_DOCUMENT',
                 'UF_LIST_OFFICE',
@@ -288,6 +291,7 @@ class StatementComponent extends CBitrixComponent
                 'UF_FILE_DOVERENOST',
             ],
             'ORGANIZATION' => [
+                'UF_STATUS',
                 'UF_VIEW_REQUEST_SUB',
                 'UF_TYPE_GET_DOCUMENT',
                 'UF_LIST_OFFICE',
