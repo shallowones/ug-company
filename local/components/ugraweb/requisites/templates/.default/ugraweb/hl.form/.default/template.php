@@ -20,14 +20,16 @@ foreach ($controls as $control) {
     switch (true) {
         case $control instanceof \UW\Form\Text:
         case $control instanceof \UW\Form\TextArea:
+            $html .= "<div class='profile'>
+                            <div class='profile-left'> {$control->label()}</div>
+                            <div class='profile-right'> {$control->render()}</div>                     
+                          <small style='color:red''>{$control->error()}</small>
+                                  </div>
+                          ";
+            break;
         case $control instanceof \UW\Form\Select:
 
-            $html .= "<div class='profile'>
-                        <div class='profile-left'> {$control->label()}</div>
-                        <div class='profile-right'> {$control->render()}</div>                     
-                      <small style='color:red''>{$control->error()}</small>
-                              </div>
-                      ";
+            $html .= $control->render();
             break;
     }
 }

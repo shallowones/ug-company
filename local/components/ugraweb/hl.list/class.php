@@ -51,7 +51,6 @@ class HighloadListComponent extends CBitrixComponent
     private function getList()
     {
         $hl = HL\Base::initByCode($this->arParams['HL_CODE']);
-
         $params = [
             'select' => ['*'],
             'order' => ['ID' => 'DESC'],
@@ -123,8 +122,17 @@ class HighloadListComponent extends CBitrixComponent
             $params['offset'] = 0;
         }
 
+        //Список статусов со значениями (Выполненная/Аннулированная заявка)
+        $endData = CUserFieldEnum::GetList([], ['XML_ID' => ['CANCELED', 'COMPLETED']]);
         $rsData = new CDBResult;
-        $rsData->InitFromArray($hl::getList($params)->fetchAll());
+             $data = $hl::getList([
+            'select' => ['ID', 'UF_DATE_INSERT', 'UF_VIEW_REQUEST_SUB', 'UF_STATUS' ],
+            'order' => ['ID' => 'DESC'],
+            'filter' => []
+        ]);
+
+        $rsData->InitFromArray($data->fetchAll());
+
         $rsData->NavStart($params['limit'], false, $navyParams['PAGEN']);
         $rsData->NavRecordCount = $totalCount;
         $rsData->NavPageCount = $totalPages;
@@ -137,10 +145,16 @@ class HighloadListComponent extends CBitrixComponent
                 $arHlElement['ID'],
                 $this->arParams['DETAIL_URL']
             );
+            if($arType = CUserFieldEnum::GetList([], ["USER_FIELD_NAME" => 'UF_VIEW_REQUEST_SUB', 'ID' => $arHlElement['UF_VIEW_REQUEST_SUB']] )->fetch()) {
+                $arHlElement['UF_VIEW_REQUEST_SUB'] = $arType['VALUE'];
+            }
+
+            if($arStat = CUserFieldEnum::GetList([], ["USER_FIELD_NAME" => 'UF_STATUS', 'ID' => $arHlElement['UF_STATUS']])->fetch()) {
+                $arHlElement['UF_STATUS'] = $arStat['VALUE'];
+            }
 
             $this->arResult['LIST'][] = $arHlElement;
         }
-
         // Строка постраничной навигации
         $this->arResult['NAV_STRING'] = $rsData->GetPageNavStringEx(
             $navComponentObject,

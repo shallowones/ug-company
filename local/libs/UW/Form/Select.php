@@ -29,12 +29,14 @@ class Select extends Input
         $data = '';
 
         foreach ($this->attributes as $key => $value) {
+
             if(is_bool($value)) {
                 $data .= ' ' . $key;
             } else {
                 $data .= ' ' . $key . '="' . $value . '"';
             }
         }
+
 
         $options = '<option value="">(не выбрано)</option>';
         foreach ($this->valueOptions as $arOption) {
@@ -44,8 +46,16 @@ class Select extends Input
             }
             $options .= '<option value="' . $arOption['id'] . '" ' . $selected . '>' . $arOption['value'] . '</option>';
         }
+        if ($this->id == 'UF_LIST_OFFICE')
+            $id = "id='office'";
 
-        return "<select class='profile__select' id='{$this->id}' {$data}>{$options}</select>";
+        $select = "<div class='profile' {$id}>
+                           <div class='profile-left'>
+                                {$this->label}
+                           </div>
+                           <div class='profile-right'>                          
+                ";
+        return "$select <select class='profile__select' id='{$this->id}' {$data}>{$options}</select></div> <small style='color:red''>{$this->error()}</small></div>";
     }
 
     public function validate()

@@ -38,7 +38,6 @@ class HighloadDetailComponent extends CBitrixComponent
             $arFields = [];
             $obUserFieldEnum = new \CUserFieldEnum;
             foreach ($this->arParams['CONTROLS'] as $code) {
-
                 $value = $arHlElement[$code];
                 if (array_key_exists($code, $arFieldsHL)) {
                     $displayValue = $value;

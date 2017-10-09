@@ -14,26 +14,6 @@ ShowMessage($arParams["~AUTH_RESULT"]);
 
 				<h1 class="h1"><?=GetMessage("AUTH_CHANGE_PASSWORD")?></h1>
 
-				<div class="profile">
-                    <h2 class="profile-left">
-                        <span class="starrequired">*</span>
-                        <?=GetMessage("AUTH_LOGIN")?>
-                    </h2>
-                    <div class="profile-right">
-				        <input class="profile__text" type="text" name="USER_LOGIN" maxlength="50" value="<?=$arResult["LAST_LOGIN"]?>" required />
-                    </div>
-                </div>
-
-                <div class="profile">
-                    <h2 class="profile-left">
-                        <span class="starrequired">*</span>
-                        <?=GetMessage("AUTH_CHECKWORD")?>
-                    </h2>
-                    <div class="profile-right">
-                        <input class="profile__text" type="text" name="USER_CHECKWORD" maxlength="50" value="<?=$arResult["USER_CHECKWORD"]?>" required/>
-                    </div>
-                </div>
-
                 <div class="profile">
                     <h2 class="profile-left">
                         <span class="starrequired">*</span>
@@ -94,7 +74,7 @@ ShowMessage($arParams["~AUTH_RESULT"]);
     function validatePassword(){
         var pass2=document.getElementById("password2").value;
         var pass1=document.getElementById("password1").value;
-        if(pass1!=pass2)
+        if(pass1 !== pass2)
             document.getElementById("password2").setCustomValidity("Пароли не совпадают");
         else
             document.getElementById("password2").setCustomValidity('');

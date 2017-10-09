@@ -1,0 +1,12 @@
+[submodule "local/external-libs/Configula"]
+	path = local/external-libs/Configula
+	url = https://github.com/ugraweb/Configula.git
+[submodule "local/external-libs/Phalcon"]
+	path = local/external-libs/Phalcon
+	url = https://github.com/ugraweb/phalcon-acl.git
+[submodule "local/libs/Psr"]
+	path = local/libs/Psr
+	url = https://github.com/ugraweb/psr4-loader.git
+[submodule "local/libs/UW/Acl"]
+	path = local/libs/UW/Acl
+	url = https://github.com/ugraweb/bitrix-acl-phalcon-bridge.git
